@@ -1,0 +1,15 @@
+# Ignore Gradle's project-specific cache directory:
+/.gradle/
+/app/.gradle/
+
+# Ignore Gradle's build output directory:
+/build/
+
+# Ignore IDE-specific directories:
+/.idea/
+/.nb-gradle/
+/private/
+
+# Ignore input and output files:
+/app/checkstyle.xml
+/app/checkstyle-sorted.xml
