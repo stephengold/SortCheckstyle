@@ -21,6 +21,7 @@ SOFTWARE.
  */
 package org.github.stephengold.sortcheckstyle;
 
+import com.beust.jcommander.JCommander;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
@@ -56,17 +57,17 @@ final public class Main {
      */
     final private static int suppressionGroup = 15;
     /**
-     * default path to the input file
-     */
-    final private static String inputPath = "checkstyle.xml";
-    /**
-     * default path to the output file
-     */
-    final private static String outputPath = "checkstyle-sorted.xml";
-    /**
      * global map from module IDs to (non-suppression) DOM nodes
      */
     final private static Map<String, Node> moduleIdToNode = new TreeMap<>();
+    /**
+     * command-line parameters
+     */
+    final private static Parameters parameters = new Parameters();
+    /**
+     * default input file
+     */
+    final private static String defaultInputFilename = "checkstyle.xml";
     // *************************************************************************
     // constructors
 
@@ -81,7 +82,7 @@ final public class Main {
     /**
      * Main entry point for the SortCheckstyle console application.
      *
-     * @param args command-line arguments (unused)
+     * @param arguments the command-line arguments
      * @throws IOException if an error occurs while reading the input document
      * @throws ParserConfigurationException if the requested DocumentBuilder
      * cannot be created
@@ -89,18 +90,40 @@ final public class Main {
      * @throws TransformerException if an unrecoverable error occurs while
      * writing the modified document
      */
-    public static void main(String[] args)
+    public static void main(String[] arguments)
             throws IOException, ParserConfigurationException,
             SAXException, TransformerException {
+        JCommander jCommander = new JCommander(parameters);
+        jCommander.parse(arguments);
+        jCommander.setProgramName("SortCheckstyle");
+        if (parameters.helpOnly()) {
+            jCommander.usage();
+            System.exit(0);
+        }
 
         // Create a DocumentBuilder:
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
 
-        // Read and parse the input file:
-        System.out.println("Reading XML from " + inputPath);
-        File inputFile = new File(inputPath);
-        Document document = builder.parse(inputFile);
+        // Read and parse the document:
+        Document document;
+        if (parameters.inputUri() != null) {
+            String inputUri = parameters.inputUri();
+            System.out.printf(
+                    "Reading XML from URI \"%s\" ...", inputUri);
+            document = builder.parse(inputUri);
+
+        } else {
+            String inputFilename = parameters.inputFilename();
+            if (inputFilename == null) {
+                inputFilename = defaultInputFilename;
+            }
+            System.out.printf(
+                    "Reading XML from file \"%s\" ...", inputFilename);
+            File inputFile = new File(inputFilename);
+            document = builder.parse(inputFile);
+        }
+        System.out.println(" done.");
 
         // Process the document, making changes as we go:
         processDocument(document);
@@ -109,9 +132,14 @@ final public class Main {
         TransformerFactory tFactory = TransformerFactory.newInstance();
         Transformer transformer = tFactory.newTransformer();
         DOMSource source = new DOMSource(document);
-        StreamResult result = new StreamResult(outputPath);
+
+        String outputFilename = parameters.outputFilename();
+        String description = parameters.describeProcessing();
+        System.out.printf("Writing %s XML to file \"%s\" ...",
+                description, outputFilename);
+        StreamResult result = new StreamResult(outputFilename);
         transformer.transform(source, result);
-        System.out.println("Sorted XML written to " + outputPath);
+        System.out.println(" done.");
     }
 
     /**
@@ -656,17 +684,21 @@ final public class Main {
             }
         };
 
-        // Sort the module's attributes:
-        NamedNodeMap attributeMap = module.getAttributes();
-        Node[] attributeArray = DomUtils.toArray(attributeMap);
-        Arrays.sort(attributeArray, comparator);
-        DomUtils.setAttributesFromArray(module, attributeArray);
+        if (parameters.sortAttributes()) {
+            // Sort the module's attributes:
+            NamedNodeMap attributeMap = module.getAttributes();
+            Node[] attributeArray = DomUtils.toArray(attributeMap);
+            Arrays.sort(attributeArray, comparator);
+            DomUtils.setAttributesFromArray(module, attributeArray);
+        }
 
-        // Sort the module's children:
-        NodeList childList = module.getChildNodes();
-        Node[] childArray = DomUtils.toArray(childList);
-        Arrays.sort(childArray, comparator);
-        DomUtils.setChildrenFromArray(module, childArray);
+        if (parameters.sortAttributes()) {
+            // Sort the module's children:
+            NodeList childList = module.getChildNodes();
+            Node[] childArray = DomUtils.toArray(childList);
+            Arrays.sort(childArray, comparator);
+            DomUtils.setChildrenFromArray(module, childArray);
+        }
     }
 
     /**

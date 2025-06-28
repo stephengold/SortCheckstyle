@@ -24,6 +24,10 @@ checkstyle {
     toolVersion = libs.versions.checkstyle.get()
 }
 
+dependencies {
+    implementation(libs.jcommander)
+}
+
 tasks.withType<JavaCompile>().all { // Java compile-time options:
     options.compilerArgs.add("-Xdiags:verbose")
     if (javaVersion.isCompatibleWith(JavaVersion.VERSION_20)) {
@@ -39,5 +43,6 @@ tasks.withType<JavaCompile>().all { // Java compile-time options:
 }
 
 tasks.withType<JavaExec>().all { // Java runtime options:
+    classpath = sourceSets.main.get().runtimeClasspath
     enableAssertions = true
 }

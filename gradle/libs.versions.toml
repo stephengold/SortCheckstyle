@@ -6,6 +6,8 @@ checkstyle = "10.26.0"
 
 [libraries]
 
+jcommander = "org.jcommander:jcommander:1.85"
+
 [bundles]
 
 [plugins]
