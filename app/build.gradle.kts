@@ -28,6 +28,32 @@ dependencies {
     implementation(libs.jcommander)
 }
 
+tasks.register<JavaExec>("runGoogle") {
+    args("-u", "https://raw.githubusercontent.com/checkstyle/checkstyle/refs/heads/master/src/main/resources/google_checks.xml")
+    description = "Process the Checkstyle configuration for Google Java Style."
+    mainClass = "org.github.stephengold.sortcheckstyle.Main"
+}
+tasks.register<JavaExec>("runHelp") {
+    args("-h")
+    description = "Display the usage message and then exit."
+    mainClass = "org.github.stephengold.sortcheckstyle.Main"
+}
+tasks.register<JavaExec>("runNoSort") {
+    args("--noSortAttributes", "--noSortChildren")
+    description = "Process the default input without sorting anything."
+    mainClass = "org.github.stephengold.sortcheckstyle.Main"
+}
+tasks.register<JavaExec>("runSelf") {
+    args("-i", "../config/checkstyle/checkstyle.xml")
+    description = "Process the SortCheckstyle configuration file."
+    mainClass = "org.github.stephengold.sortcheckstyle.Main"
+}
+tasks.register<JavaExec>("runSun") {
+    args("-u", "https://raw.githubusercontent.com/checkstyle/checkstyle/refs/heads/master/src/main/resources/sun_checks.xml")
+    description = "Process the Checkstyle configuration for Sun's Java Style."
+    mainClass = "org.github.stephengold.sortcheckstyle.Main"
+}
+
 tasks.withType<JavaCompile>().all { // Java compile-time options:
     options.compilerArgs.add("-Xdiags:verbose")
     if (javaVersion.isCompatibleWith(JavaVersion.VERSION_20)) {
