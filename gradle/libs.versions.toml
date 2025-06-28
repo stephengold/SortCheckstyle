@@ -1,0 +1,11 @@
+## catalog of libraries and plugins used to build the SortCheckstyle project
+
+[versions]
+
+checkstyle = "10.26.0"
+
+[libraries]
+
+[bundles]
+
+[plugins]
