@@ -426,6 +426,7 @@ final public class Main {
             case "NoCodeInFile":
             case "OrderedProperties":
             case "OuterTypeFilename":
+            case "TodoComment":
             case "TrailingComment":
             case "Translation":
             case "UncommentsedMain":
