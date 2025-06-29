@@ -17,3 +17,32 @@ Characteristics of the SortCheckstyle scheme:
   + modules appear before messages
   + properties are sorted lexicographically by name, and
   + messages are sorted lexicographically by key.
+
+### Usage
+
+<pre>
+Usage: SortCheckstyle [options]
+  Options:
+    -h, --help
+      Display this usage message and exit.
+      Default: false
+    -f, --file, -i, --input
+      Specify the input file.
+    --noSortAttributes
+      Disable attribute sorting.
+      Default: false
+    --noSortChildren
+      Disable child sorting.
+      Default: false
+    -o, --output
+      Specify the output file.
+      Default: checkstyle-out.xml
+    -u, --uri
+      Specify the input URI.
+    -v, --verbose
+      Generate additional log output.
+      Default: false
+</pre>
+
+If no input file or URI is specified,
+the tool will attempt to read the file "checkstyle-in.xml".
