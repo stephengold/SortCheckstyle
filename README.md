@@ -23,6 +23,9 @@ Characteristics of the SortCheckstyle scheme:
 <pre>
 Usage: SortCheckstyle [options]
   Options:
+    -c, --compress
+      Compress whitespace in values.
+      Default: false
     -h, --help
       Display this usage message and exit.
       Default: false
