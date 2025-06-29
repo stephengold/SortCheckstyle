@@ -28,6 +28,8 @@ dependencies {
     implementation(libs.jcommander)
 }
 
+// Register Java-execution tasks:
+
 tasks.register<JavaExec>("runGoogle") {
     args("-u", "https://raw.githubusercontent.com/checkstyle/checkstyle/refs/heads/master/src/main/resources/google_checks.xml")
     description = "Process the Checkstyle configuration for Google Java Style."
@@ -52,6 +54,15 @@ tasks.register<JavaExec>("runSun") {
     args("-u", "https://raw.githubusercontent.com/checkstyle/checkstyle/refs/heads/master/src/main/resources/sun_checks.xml")
     description = "Process the Checkstyle configuration for Sun's Java Style."
     mainClass = "org.github.stephengold.sortcheckstyle.Main"
+}
+
+// Register cleanup tasks:
+
+tasks.named("clean") {
+    dependsOn("cleanXml")
+}
+tasks.register<Delete>("cleanXml") {
+    delete(fileTree(".").matching{ include("*.xml") })
 }
 
 tasks.withType<JavaCompile>().all { // Java compile-time options:
