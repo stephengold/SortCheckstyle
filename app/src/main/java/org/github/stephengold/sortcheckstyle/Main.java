@@ -457,7 +457,7 @@ final public class Main {
             case "TodoComment":
             case "TrailingComment":
             case "Translation":
-            case "UncommentsedMain":
+            case "UncommentedMain":
             case "UniqueProperties":
             case "UpperEll":
                 return 9; // miscellaneous
