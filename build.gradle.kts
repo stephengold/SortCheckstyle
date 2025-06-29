@@ -11,6 +11,10 @@ tasks.register("checkstyle") {
 tasks.register("run") {
     dependsOn(":app:run")
 }
+tasks.register("runCompress") {
+    dependsOn(":app:runCompress")
+    description = "Compress the default input."
+}
 tasks.register("runGoogle") {
     dependsOn(":app:runGoogle")
     description = "Process the Checkstyle configuration for Google Java Style."
@@ -21,7 +25,7 @@ tasks.register("runHelp") {
 }
 tasks.register("runNoSort") {
     dependsOn(":app:runNoSort")
-    description = "Process the default input without sorting anything."
+    description = "Process the default input without sorting or compressing anything."
 }
 tasks.register("runSelf") {
     dependsOn(":app:runSelf")

@@ -30,6 +30,11 @@ dependencies {
 
 // Register Java-execution tasks:
 
+tasks.register<JavaExec>("runCompress") {
+    args("--compress", "--noSortAttributes", "--noSortChildren")
+    description = "Compress the default input."
+    mainClass = "org.github.stephengold.sortcheckstyle.Main"
+}
 tasks.register<JavaExec>("runGoogle") {
     args("-u", "https://raw.githubusercontent.com/checkstyle/checkstyle/refs/heads/master/src/main/resources/google_checks.xml")
     description = "Process the Checkstyle configuration for Google Java Style."
@@ -42,7 +47,7 @@ tasks.register<JavaExec>("runHelp") {
 }
 tasks.register<JavaExec>("runNoSort") {
     args("--noSortAttributes", "--noSortChildren")
-    description = "Process the default input without sorting anything."
+    description = "Process the default input without sorting or compressing anything."
     mainClass = "org.github.stephengold.sortcheckstyle.Main"
 }
 tasks.register<JavaExec>("runSelf") {
