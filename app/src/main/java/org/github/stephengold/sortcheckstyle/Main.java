@@ -53,10 +53,6 @@ final public class Main {
     // constants
 
     /**
-     * index of the group to which non-file suppression modules belong
-     */
-    final private static int suppressionGroup = 15;
-    /**
      * global map from module IDs to (non-suppression) DOM nodes
      */
     final private static Map<String, Node> moduleIdToNode = new TreeMap<>();
@@ -171,22 +167,20 @@ final public class Main {
 
             String aId = getModuleId(a);
             String aName = getElementName(a);
-            int groupA = moduleGroup(aName);
-            if (groupA == suppressionGroup && aId != null) {
+            if (ModuleGroups.isInSuppressionGroup(aName) && aId != null) {
                 a = moduleIdToNode.get(aId);
                 aName = getElementName(a);
-                groupA = moduleGroup(aName);
             }
 
             String bId = getModuleId(b);
             String bName = getElementName(b);
-            int groupB = moduleGroup(bName);
-            if (groupB == suppressionGroup && bId != null) {
+            if (ModuleGroups.isInSuppressionGroup(bName) && bId != null) {
                 b = moduleIdToNode.get(bId);
                 bName = getElementName(b);
-                groupB = moduleGroup(bName);
             }
 
+            int groupA = ModuleGroups.moduleGroup(aName);
+            int groupB = ModuleGroups.moduleGroup(bName);
             if (groupA > groupB) {
                 return 1;
             } else if (groupA < groupB) {
@@ -282,8 +276,7 @@ final public class Main {
             String moduleName = getElementName(module);
 
             // Ignore any IDs found in suppression modules:
-            int moduleGroup = moduleGroup(moduleName);
-            if (moduleGroup != suppressionGroup) {
+            if (!ModuleGroups.isInSuppressionGroup(moduleName)) {
 
                 String moduleId = getModuleId(module);
                 if (moduleId != null) {
@@ -292,262 +285,6 @@ final public class Main {
                 }
             }
 
-        }
-    }
-
-    /**
-     * Return the group to which the specified module belongs.
-     *
-     * @param moduleName the name of a Checkstyle module
-     * @return the module's group index
-     */
-    private static int moduleGroup(String moduleName) {
-        switch (moduleName) {
-            case "Checker":
-                return 0;
-
-            case "AnnotationLocation":
-            case "AnnotationOnSameLine":
-            case "AnnotationUseStyle":
-            case "MissingDeprecated":
-            case "MissingOverride":
-            case "PackageAnnotation":
-            case "SuppressWarnings":
-            case "SuppressWarningsHolder":
-                return 1; // annotations
-
-            case "AvoidNestedBlocks":
-            case "EmptyBlock":
-            case "EmptyCatchBlock":
-            case "LeftCurly":
-            case "NeedBraces":
-            case "RightCurly":
-                return 2; // block checks
-
-            case "DesignForExtension":
-            case "FinalClass":
-            case "HideUtilityClassConstructor":
-            case "InnerTypeLast":
-            case "InterfaceIsType":
-            case "MutableException":
-            case "OneTopLevelClass":
-            case "SealedShouldHavePermitsList":
-            case "ThrowsCount":
-            case "VisibilityModifier":
-                return 3; // class design
-
-            case "ArrayTrailingComma":
-            case "AvoidDoubleBraceInitialization":
-            case "AvoidInlineConditionals":
-            case "AvoidNoArgumentSuperConstructorCall":
-            case "ConstructorsDeclarationGrouping":
-            case "CovariantEquals":
-            case "DeclarationOrder":
-            case "DefaultComesLast":
-            case "EmptyStatement":
-            case "EqualsAvoidNull":
-            case "EqualsHashCode":
-            case "ExplicitInitialization":
-            case "FallThrough":
-            case "FinalLocalVariable":
-            case "HiddenField":
-            case "IllegalCatch":
-            case "IllegalInstantiation":
-            case "IllegalThrows":
-            case "IllegalToken":
-            case "IllegalTokenText":
-            case "IllegalType":
-            case "InnerAssignment":
-            case "MagicNumber":
-            case "MatchXpath":
-            case "MissingCtor":
-            case "MissingNullCaseInSwitch":
-            case "MissingSwitchDefault":
-            case "ModifiedControlVariable":
-            case "MultipleStringLiterals":
-            case "MultipleVariableDeclarations":
-            case "NestedForDepth":
-            case "NestedIfDepth":
-            case "NestedTryDepth":
-            case "NoArrayTrailingComma":
-            case "NoFinalizer":
-            case "OneStatementPerLine":
-            case "OverloadMethodsDeclarationOrder":
-            case "PackageDeclaration":
-            case "ParameterAssignment":
-            case "PatternVariableAssignment":
-            case "RequireThis":
-            case "ReturnCount":
-            case "SimplifyBooleanExpression":
-            case "SimplifyBooleanReturn":
-            case "StringLiteralEquality":
-            case "SuperClone":
-            case "SuperFinalize":
-            case "UnnecessaryNullCheckWithInstanceOf":
-            case "UnnecessaryParentheses":
-            case "UnnecessarySemicolonAfterOuterTypeDeclaration":
-            case "UnnecessarySemicolonAfterTypeMemberDeclaration":
-            case "UnnecessarySemicolonInEnumeration":
-            case "UnnecessarySemicolonInTryWithResources":
-            case "UnusedCatchParameterShouldBeUnnamed":
-            case "UnusedLambdaParameterShouldBeUnnamed":
-            case "UnusedLocalVariable":
-            case "VariableDeclarationUsageDistance":
-            case "WhenShouldBeUsed":
-                return 4; // coding
-
-            case "Header":
-            case "MultiFileRegexpHeader":
-            case "RegexpHeader":
-                return 5; // headers
-
-            case "AvoidStarImport":
-            case "AvoidStaticImport":
-            case "CustomImportOrder":
-            case "IllegalImport":
-            case "ImportControl":
-            case "ImportOrder":
-            case "RedundantImport":
-            case "UnusedImports":
-                return 6; // imports
-
-            case "AtclauseOrder":
-            case "InvalidJavadocPosition":
-            case "JavadocBlockTagLocation":
-            case "JavadocContentLocation":
-            case "JavadocLeadingAsteriskAlign":
-            case "JavadocMethod":
-            case "JavadocMissingLeadingAsterisk":
-            case "JavadocMissingWhitespaceAfterAsterisk":
-            case "JavadocPackage":
-            case "JavadocParagraph":
-            case "JavadocStyle":
-            case "JavadocTagContinuationIndentation":
-            case "JavadocType":
-            case "JavadocVariable":
-            case "MissingJavadocMethod":
-            case "MissingJavadocPackage":
-            case "MissingJavadocType":
-            case "NonEmptyAtclauseDescription":
-            case "RequireEmptyLineBeforeBlockTagGroup":
-            case "SingleLineJavadoc":
-            case "SummaryJavadoc":
-            case "WriteTag":
-                return 7; // javadoc comments
-
-            case "BooleanExpressionComplexity":
-            case "ClassDataAbstractionCoupling":
-            case "ClassFanOutComplexity":
-            case "CyclomaticComplexity":
-            case "JavaNCSS":
-            case "NPathComplexity":
-                return 8; // metrics
-
-            case "ArrayTypeStyle":
-            case "AvoidEscapedUnicodeCharacters":
-            case "CommentsIndentation":
-            case "DescendantToken":
-            case "FinalParameters":
-            case "Indentation":
-            case "NewlineAtEndOfFile":
-            case "NoCodeInFile":
-            case "OrderedProperties":
-            case "OuterTypeFilename":
-            case "TodoComment":
-            case "TrailingComment":
-            case "Translation":
-            case "UncommentedMain":
-            case "UniqueProperties":
-            case "UpperEll":
-                return 9; // miscellaneous
-
-            case "ClassMemberImpliedModifier":
-            case "InterfaceMemberImpliedModifier":
-            case "ModifierOrder":
-            case "RedundantModifier":
-                return 10; // modifiers
-
-            case "AbbreviationAsWordInName":
-            case "AbstractClassName":
-            case "CatchParameterName":
-            case "ClassTypeParameterName":
-            case "ConstantName":
-            case "IllegalIdentifierName":
-            case "InterfaceTypeParameterName":
-            case "LambdaParameterName":
-            case "LocalFinalVariableName":
-            case "LocalVariableName":
-            case "MemberName":
-            case "MethodName":
-            case "MethodTypeParameterName":
-            case "PackageName":
-            case "ParameterName":
-            case "PatternVariableName":
-            case "RecordComponentName":
-            case "RecordTypeParameterName":
-            case "StaticVariableName":
-            case "TypeName":
-                return 11; // naming conventions
-
-            case "Regexp":
-            case "RegexpMultiline":
-            case "RegexpOnFilename":
-            case "RegexpSingleline":
-            case "RegexpSinglelineJava":
-                return 12; // regexp checks
-
-            case "AnonInnerLength":
-            case "ExecutableStatementCount":
-            case "FileLength":
-            case "LambdaBodyLength":
-            case "LineLength":
-            case "MethodCount":
-            case "MethodLength":
-            case "OuterTypeNumber":
-            case "ParameterNumber":
-            case "RecordComponentNumber":
-                return 13; // size violations
-
-            case "EmptyForInitializerPad":
-            case "EmptyForIteratorPad":
-            case "EmptyLineSeparator":
-            case "FileTabCharacter":
-            case "GenericWhitespace":
-            case "MethodParamPad":
-            case "NoLineWrap":
-            case "NoWhitespaceAfter":
-            case "NoWhitespaceBefore":
-            case "NoWhitespaceBeforeCaseDefaultColon":
-            case "OperatorWrap":
-            case "ParenPad":
-            case "SeparatorWrap":
-            case "SingleSpaceSeparator":
-            case "TypecastParenPad":
-            case "WhitespaceAfter":
-            case "WhitespaceAround":
-                return 14; // whitespace
-
-            case "SeverityMatchFilter":
-            case "SuppressWarningsFilter":
-            case "SuppressWithNearbyCommentFilter":
-            case "SuppressWithNearbyTextFilter":
-            case "SuppressWithPlainTextCommentFilter":
-            case "SuppressionCommentFilter":
-            case "SuppressionFilter":
-            case "SuppressionSingleFilter":
-            case "SuppressionXpathFilter":
-            case "SuppressionXpathSingleFilter":
-                return suppressionGroup; // non-file filters
-
-            case "BeforeExecutionExclusionFileFilter":
-                return suppressionGroup + 1; // file filters
-
-            case "TreeWalker":
-                return 99;
-
-            default:
-                throw new IllegalArgumentException(
-                        "moduleName = " + moduleName);
         }
     }
 
@@ -593,7 +330,7 @@ final public class Main {
                     case "property":
                         String elementName = getElementName(node);
                         if (tagName.equals("module")) {
-                            int group = moduleGroup(elementName);
+                            int group = ModuleGroups.moduleGroup(elementName);
                             System.out.printf(" [group %d]", group);
                             String id = getModuleId(node);
                             if (id != null) {
