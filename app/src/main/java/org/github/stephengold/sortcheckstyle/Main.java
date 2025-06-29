@@ -182,7 +182,6 @@ final public class Main {
             String bName = getElementName(b);
             int groupB = moduleGroup(bName);
             if (groupB == suppressionGroup && bId != null) {
-                assert bId != null : bName;
                 b = moduleIdToNode.get(bId);
                 bName = getElementName(b);
                 groupB = moduleGroup(bName);
