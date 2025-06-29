@@ -13,4 +13,4 @@
 
 # Ignore input and output files:
 /app/checkstyle-in.xml
-/app/checkstyle-sorted.xml
+/app/checkstyle-out.xml

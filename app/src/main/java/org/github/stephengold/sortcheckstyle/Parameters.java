@@ -62,11 +62,11 @@ class Parameters {
             description = "Disable child sorting.")
     private boolean noSortChildren;
     /**
-     * filename for XML output (default="checkstyle-sorted.xml")
+     * filename for XML output (default="checkstyle-out.xml")
      */
     @Parameter(names = {"-o", "--output"},
             description = "Specify the output file.")
-    private String outputFilename = "checkstyle-sorted.xml";
+    private String outputFilename = "checkstyle-out.xml";
     /**
      * whether log output should be verbose
      */
