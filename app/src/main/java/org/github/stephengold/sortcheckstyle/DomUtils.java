@@ -54,10 +54,9 @@ final class DomUtils {
         int nodeType = element.getNodeType();
         assert nodeType == Node.ELEMENT_NODE : "nodeType = " + nodeType;
 
-        String result;
         NamedNodeMap attributes = element.getAttributes();
         Node item = attributes.getNamedItem(attributeName);
-        result = item.getNodeValue();
+        String result = (item == null) ? null : item.getNodeValue();
 
         return result;
     }
