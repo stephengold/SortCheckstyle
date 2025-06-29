@@ -89,6 +89,23 @@ final class DomUtils {
     }
 
     /**
+     * Alter the value of the specified attribute of the specified element.
+     *
+     * @param element the element's DOM node (not null, unaffected)
+     * @param attributeName the name of the attribute to get (not null)
+     * @param value the desired attribute value (not null)
+     */
+    static void setElementAttribute(
+            Node element, String attributeName, String value) {
+        int nodeType = element.getNodeType();
+        assert nodeType == Node.ELEMENT_NODE : "nodeType = " + nodeType;
+
+        NamedNodeMap attributes = element.getAttributes();
+        Node item = attributes.getNamedItem(attributeName);
+        item.setNodeValue(value);
+    }
+
+    /**
      * Convert the specified NamedNodeMap to an array, to facilitate sorting.
      *
      * @param map the map to convert (not null)
