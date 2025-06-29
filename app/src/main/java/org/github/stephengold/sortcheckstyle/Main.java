@@ -28,6 +28,8 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -60,6 +62,10 @@ final public class Main {
      * command-line parameters
      */
     final private static Parameters parameters = new Parameters();
+    /**
+     * pattern that matches one or more whitespace characters
+     */
+    final private static Pattern whitespacePattern = Pattern.compile("\\s+");
     /**
      * default input file
      */
@@ -219,6 +225,36 @@ final public class Main {
     }
 
     /**
+     * Compress any whitespace in the message/property values of the specified
+     * module.
+     *
+     * @param module the DOM node of the module (not null)
+     */
+    private static void compressWhitespace(Node module) {
+        short nodeType = module.getNodeType();
+        assert nodeType == Node.ELEMENT_NODE : nodeType;
+        String tag = module.getNodeName();
+        assert tag.equals("module") : tag;
+
+        NodeList list = module.getChildNodes();
+        int length = list.getLength();
+        for (int i = 0; i < length; ++i) {
+            Node child = list.item(i);
+            String childTag = child.getNodeName();
+            if (childTag.equals("message") || childTag.equals("property")) {
+                String value = DomUtils.getElementAttribute(child, "value");
+                if (value != null) {
+                    Matcher m = whitespacePattern.matcher(value);
+                    if (m.find()) {
+                        value = m.replaceAll(" ");
+                        DomUtils.setElementAttribute(child, "value", value);
+                    }
+                }
+            }
+        }
+    }
+
+    /**
      * Return the "name" attribute of the specified element.
      *
      * @param element the element's DOM node (not null, unaffected)
@@ -363,9 +399,17 @@ final public class Main {
     private static void processDocument(Document document) {
         initializeIdMap(document);
 
-        // Re-order the children of each module:
         NodeList allModules = document.getElementsByTagName("module");
         int numModules = allModules.getLength();
+
+        if (parameters.compressWhitespace()) {
+            for (int i = 0; i < numModules; ++i) {
+                Node module = allModules.item(i);
+                compressWhitespace(module);
+            }
+        }
+
+        // Re-order the children of each module:
         for (int i = 0; i < numModules; ++i) {
             Node module = allModules.item(i);
             sortModuleChildren(module);

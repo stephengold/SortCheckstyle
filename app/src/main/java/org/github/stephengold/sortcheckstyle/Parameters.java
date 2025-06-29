@@ -33,6 +33,12 @@ class Parameters {
     // fields
 
     /**
+     * whether to compress whitespace in values
+     */
+    @Parameter(names = {"-c", "--compress"},
+            description = "Compress whitespace in values.")
+    private boolean compressWhitespace;
+    /**
      * whether to simply display the usage message and then exit
      */
     @Parameter(names = {"-h", "--help"},
@@ -77,17 +83,40 @@ class Parameters {
     // new methods exposed
 
     /**
+     * Test whether to compress whitespace in message/property values.
+     *
+     * @return {@code true} to compress, otherwise {@code false}
+     */
+    boolean compressWhitespace() {
+        return compressWhitespace;
+    }
+
+    /**
      * Describe how the document was/will be processed.
      *
      * @return text in English (not null)
      */
     String describeProcessing() {
         if (sortAttributes() && sortChildren()) {
-            return "sorted";
+            if (compressWhitespace()) {
+                return "compressed and sorted";
+            } else {
+                return "sorted";
+            }
+
         } else if (sortAttributes() || sortChildren()) {
-            return "partly sorted";
+            if (compressWhitespace()) {
+                return "compressed and partly sorted";
+            } else {
+                return "partly sorted";
+            }
+
         } else {
-            return "unsorted";
+            if (compressWhitespace()) {
+                return "compressed";
+            } else {
+                return "unsorted";
+            }
         }
     }
 
