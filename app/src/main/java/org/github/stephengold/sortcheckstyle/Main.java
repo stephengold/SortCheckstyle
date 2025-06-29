@@ -67,7 +67,7 @@ final public class Main {
     /**
      * default input file
      */
-    final private static String defaultInputFilename = "checkstyle.xml";
+    final private static String defaultInputFilename = "checkstyle-in.xml";
     // *************************************************************************
     // constructors
 

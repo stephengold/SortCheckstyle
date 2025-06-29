@@ -12,5 +12,5 @@
 /private/
 
 # Ignore input and output files:
-/app/checkstyle.xml
+/app/checkstyle-in.xml
 /app/checkstyle-sorted.xml
