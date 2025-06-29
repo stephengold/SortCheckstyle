@@ -259,9 +259,9 @@ final public class Main {
                 if (tagName.equals("property")) {
                     String elementName = getElementName(child);
                     if (elementName.equals("id")) {
-                        String elementValue
+                        String result
                                 = DomUtils.getElementAttribute(child, "value");
-                        return elementValue;
+                        return result;
                     }
                 }
             }
