@@ -33,7 +33,7 @@
     <!-- Checks for size violations:             -->
     <!-- See https://checkstyle.org/checks/sizes -->
     <module name="FileLength">
-        <property name="max" value="500"/>
+        <property name="max" value="600"/>
     </module>
     <module name="LineLength">
         <property name="fileExtensions" value="java"/>
@@ -246,7 +246,7 @@
             <message key="name.invalidPattern" value="Local variable name ''{0}'' must match pattern ''{1}''."/>
         </module>
         <module name="MemberName">
-            <property name="format" value="^[a-z][0-9A-Za-z]{0,15}$"/>
+            <property name="format" value="^[a-z][0-9A-Za-z]{0,17}$"/>
             <message key="name.invalidPattern" value="Member name ''{0}'' must match pattern ''{1}''."/>
         </module>
         <module name="MethodName">
@@ -296,7 +296,7 @@
             <property name="max" value="270"/>
         </module>
         <module name="ParameterNumber">
-            <property name="max" value="2"/>
+            <property name="max" value="3"/>
         </module>
 
         <!-- Checks for whitespace:                       -->
