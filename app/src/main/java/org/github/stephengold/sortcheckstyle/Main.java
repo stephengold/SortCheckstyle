@@ -378,8 +378,12 @@ final public class Main {
      * @param module the DOM node of the module (not null)
      */
     private static void sortModuleChildren(Node module) {
-        Comparator<Node> comparator = (Node a, Node b) -> {
+        short nodeType = module.getNodeType();
+        assert nodeType == Node.ELEMENT_NODE : nodeType;
+        String tag = module.getNodeName();
+        assert tag.equals("module") : tag;
 
+        Comparator<Node> comparator = (Node a, Node b) -> {
             // Keep each comment/text with its following module/property:
             short aType = a.getNodeType();
             while ((aType == Node.COMMENT_NODE || aType == Node.TEXT_NODE)
