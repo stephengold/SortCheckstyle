@@ -47,7 +47,6 @@
     </module>
 
     <module name="TreeWalker">
-
         <!-- Checks for annotations:                      -->
         <!-- See https://checkstyle.org/checks/annotation -->
         <module name="AnnotationLocation">
@@ -283,8 +282,8 @@
             <message key="name.invalidPattern" value="Type name ''{0}'' must match pattern ''{1}''."/>
         </module>
 
-        <!-- Regexp checks:                                   -->
-        <!-- See https://https://checkstyle.org/checks/regexp -->
+        <!-- Regexp checks:                           -->
+        <!-- See https://checkstyle.org/checks/regexp -->
         <module name="RegexpSinglelineJava">
             <property name="format" value="\{[ ]+\}"/>
             <property name="message" value="Empty blocks should have no spaces. Empty blocks may only be represented as '{}' when not part of a multi-block statement (4.1.3)"/>
