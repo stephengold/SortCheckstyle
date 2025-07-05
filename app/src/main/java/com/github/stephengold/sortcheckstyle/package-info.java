@@ -22,4 +22,4 @@ SOFTWARE.
 /**
  * Organize the content of a Checkstyle configuration file.
  */
-package org.github.stephengold.sortcheckstyle;
+package com.github.stephengold.sortcheckstyle;
