@@ -33,7 +33,7 @@ final class ModuleGroups {
     /**
      * index of the group to which non-file suppression modules belong
      */
-    private final static int suppressionGroup = 15;
+    final private static int suppressionGroup = 15;
     // *************************************************************************
     // constructors
 
