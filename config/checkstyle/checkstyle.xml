@@ -114,11 +114,19 @@
 
         <!-- Checks for common coding problems:       -->
         <!-- See https://checkstyle.org/checks/coding -->
+        <module name="AvoidDoubleBraceInitialization"/>
+        <module name="AvoidNoArgumentSuperConstructorCall"/>
         <module name="ConstructorsDeclarationGrouping"/>
+        <module name="DefaultComesLast"/>
         <module name="EmptyStatement"/>
         <module name="EqualsHashCode"/>
         <module name="FallThrough"/>
+        <module name="HiddenField">
+            <property name="tokens" value="VARIABLE_DEF"/>
+        </module>
+        <module name="IllegalCatch"/>
         <module name="IllegalInstantiation"/>
+        <module name="IllegalThrows"/>
         <module name="IllegalToken">
             <property name="tokens" value="LITERAL_NATIVE, POST_DEC, POST_INC, STATIC_IMPORT"/>
         </module>
@@ -127,6 +135,7 @@
             <property name="message" value="Use special escape sequence instead of octal value or Unicode escaped value."/>
             <property name="tokens" value="STRING_LITERAL, CHAR_LITERAL"/>
         </module>
+        <module name="IllegalType"/>
         <module name="MissingSwitchDefault"/>
         <module name="MultipleVariableDeclarations"/>
         <module name="NoFinalizer"/>
@@ -171,6 +180,7 @@
         <module name="JavadocTagContinuationIndentation">
             <property name="offset" value="0"/>
         </module>
+        <module name="JavadocVariable"/>
         <module name="MissingJavadocMethod">
             <property name="allowedAnnotations" value=""/>
             <property name="minLineCount" value="-1"/>
@@ -209,6 +219,7 @@
             <property name="lineWrappingIndentation" value="4"/>
             <property name="throwsIndent" value="4"/>
         </module>
+        <module name="NoCodeInFile"/>
         <module name="OuterTypeFilename"/>
         <module name="UpperEll"/>
 
@@ -284,6 +295,10 @@
 
         <!-- Regexp checks:                           -->
         <!-- See https://checkstyle.org/checks/regexp -->
+        <module name="RegexpSinglelineJava">
+            <property name="format" value="static (final|native|package|private|protected)|(native|package|private|protected|static) final"/>
+            <property name="message" value="Modifiers must appear in alphabetical order."/>
+        </module>
         <module name="RegexpSinglelineJava">
             <property name="format" value="\{[ ]+\}"/>
             <property name="message" value="Empty blocks should have no spaces. Empty blocks may only be represented as '{}' when not part of a multi-block statement (4.1.3)"/>
