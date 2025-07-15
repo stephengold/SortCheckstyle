@@ -27,6 +27,10 @@ tasks.register("runNoSort") {
     dependsOn(":app:runNoSort")
     description = "Process the default input without sorting or compressing anything."
 }
+tasks.register("runPuppy") {
+    dependsOn(":app:runPuppy")
+    description = "Process the Checkstyle configuration for Checkstyle itself."
+}
 tasks.register("runSelf") {
     dependsOn(":app:runSelf")
     description = "Process the SortCheckstyle configuration file."

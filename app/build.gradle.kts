@@ -50,6 +50,11 @@ tasks.register<JavaExec>("runNoSort") {
     description = "Process the default input without sorting or compressing anything."
     mainClass = "com.github.stephengold.sortcheckstyle.Main"
 }
+tasks.register<JavaExec>("runPuppy") {
+    args("-u", "https://raw.githubusercontent.com/checkstyle/checkstyle/refs/heads/master/config/checkstyle-checks.xml")
+    description = "Process the Checkstyle configuration for Checkstyle itself."
+    mainClass = "com.github.stephengold.sortcheckstyle.Main"
+}
 tasks.register<JavaExec>("runSelf") {
     args("-i", "../config/checkstyle/checkstyle.xml")
     description = "Process the SortCheckstyle configuration file."
