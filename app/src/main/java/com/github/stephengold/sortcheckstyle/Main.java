@@ -168,7 +168,17 @@ final public class Main {
             return -1;
         }
 
-        if (aTag.equals("module")) {
+        if (aTag.equals("metadata")) {
+            assert bTag.equals("metadata") : bTag;
+
+            String aName = getElementName(a);
+            String bName = getElementName(b);
+
+            // Sort by metadata name:
+            int result = aName.compareTo(bName);
+            return result;
+
+        } else if (aTag.equals("module")) {
             assert bTag.equals("module") : bTag;
 
             String aId = getModuleId(a);
@@ -494,7 +504,9 @@ final public class Main {
      */
     private static int tagOrder(String tag) {
         switch (tag) {
-            // <property> then <module> then <message>:
+            // <metadata> then <property> then <module> then <message>:
+            case "metadata":
+                return 0;
             case "property":
                 return 1;
             case "module":
