@@ -135,6 +135,8 @@ final class ModuleGroups {
             case "NestedIfDepth":
             case "NestedTryDepth":
             case "NoArrayTrailingComma":
+            case "NoClone":
+            case "NoEnumTrailingComma":
             case "NoFinalizer":
             case "OneStatementPerLine":
             case "OverloadMethodsDeclarationOrder":
