@@ -78,7 +78,7 @@ class Parameters {
      */
     @Parameter(names = {"-v", "--verbose"},
             description = "Generate additional log output.")
-    private boolean verboseLogging = false;
+    private boolean verboseLogging;
     // *************************************************************************
     // new methods exposed
 
