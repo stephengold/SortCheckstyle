@@ -2,7 +2,7 @@ SortCheckstyle is a tool to organize the contents of
 [Checkstyle](https://checkstyle.org/) configuration files.
 
 Organizing file content according to a standard scheme
-facilitates comparisons between files.
+exposes redundancy and facilitates comparisons between files.
 
 Characteristics of the SortCheckstyle scheme:
 
