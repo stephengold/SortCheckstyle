@@ -404,7 +404,7 @@ final public class Main {
     /**
      * Process the specified document in memory.
      *
-     * @param document the document to process (not null)
+     * @param document the document to process (not null, modified)
      */
     private static void processDocument(Document document) {
         initializeIdMap(document);
