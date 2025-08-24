@@ -84,9 +84,7 @@ tasks.withType<JavaCompile>().all { // Java compile-time options:
     options.compilerArgs.add("-Xlint:unchecked")
     options.encoding = "UTF-8"
     options.isDeprecation = true // to provide detailed deprecation warnings
-    if (javaVersion.isCompatibleWith(JavaVersion.VERSION_1_10)) {
-        options.release = 8
-    }
+    options.release = 8
 }
 
 tasks.withType<JavaExec>().all { // Java runtime options:
