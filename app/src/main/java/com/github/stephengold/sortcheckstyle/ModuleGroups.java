@@ -215,6 +215,7 @@ final class ModuleGroups {
             case "CommentsIndentation":
             case "DescendantToken":
             case "FinalParameters":
+            case "HexLiteralCase":
             case "Indentation":
             case "NewlineAtEndOfFile":
             case "NoCodeInFile":
