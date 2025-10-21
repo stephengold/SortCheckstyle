@@ -62,6 +62,8 @@
             <property name="id" value="AnnotationLocationVariables"/>
             <property name="tokens" value="VARIABLE_DEF"/>
         </module>
+        <module name="AnnotationUseStyle"/>
+        <module name="MissingDeprecated"/>
 
         <!-- Checks for blocks:                       -->
         <!-- See https://checkstyle.org/checks/blocks -->
@@ -222,6 +224,7 @@
         <module name="CommentsIndentation">
             <property name="tokens" value="SINGLE_LINE_COMMENT, BLOCK_COMMENT_BEGIN"/>
         </module>
+        <module name="HexLiteralCase"/>
         <module name="Indentation">
             <property name="arrayInitIndent" value="4"/>
             <property name="basicOffset" value="4"/>
