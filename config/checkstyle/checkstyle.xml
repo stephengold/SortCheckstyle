@@ -174,10 +174,7 @@
         </module>
         <module name="InvalidJavadocPosition"/>
         <module name="JavadocMethod">
-            <property name="allowMissingParamTags" value="false"/>
-            <property name="allowMissingReturnTag" value="false"/>
             <property name="allowedAnnotations" value=""/>
-            <property name="tokens" value="METHOD_DEF, CTOR_DEF, ANNOTATION_FIELD_DEF, COMPACT_CTOR_DEF"/>
         </module>
         <module name="JavadocParagraph">
             <property name="allowNewlineParagraph" value="false"/>
