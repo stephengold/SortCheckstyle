@@ -16,7 +16,7 @@ jobs:
           java-version: 17
       - uses: gradle/actions/wrapper-validation@v5
       - run: ./gradlew build javadoc runGoogle runPuppy runSelf runSun --console=plain --stacktrace
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: linux build
           path: app/build/distributions/app.tar
@@ -32,7 +32,7 @@ jobs:
           java-version: 25
       - run: ./gradlew build javadoc runGoogle runPuppy runSelf runSun --console=plain --stacktrace
         shell: bash
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: windows build
           path: app/build/distributions/app.zip
