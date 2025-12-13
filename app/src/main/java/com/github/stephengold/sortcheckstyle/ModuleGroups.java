@@ -150,6 +150,7 @@ final class ModuleGroups {
             case "StringLiteralEquality":
             case "SuperClone":
             case "SuperFinalize":
+            case "TextBlockGoogleStyleFormatting":
             case "UnnecessaryNullCheckWithInstanceOf":
             case "UnnecessaryParentheses":
             case "UnnecessarySemicolonAfterOuterTypeDeclaration":
