@@ -221,6 +221,7 @@ final class ModuleGroups {
             case "Indentation":
             case "NewlineAtEndOfFile":
             case "NoCodeInFile":
+            case "NumericalPrefixesInfixesSuffixesCharacterCase":
             case "OrderedProperties":
             case "OuterTypeFilename":
             case "TodoComment":
