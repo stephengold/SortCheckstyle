@@ -246,6 +246,7 @@
             <property name="format" value="^$"/>
             <message key="name.invalidPattern" value="Class type name ''{0}'' must match pattern ''{1}''."/>
         </module>
+        <module name="GoogleNonConstantFieldName"/>
         <module name="InterfaceTypeParameterName">
             <property name="format" value="^$"/>
             <message key="name.invalidPattern" value="Interface type name ''{0}'' must match pattern ''{1}''."/>
