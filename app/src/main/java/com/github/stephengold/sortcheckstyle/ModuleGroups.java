@@ -161,6 +161,7 @@ final class ModuleGroups {
             case "UnusedCatchParameterShouldBeUnnamed":
             case "UnusedLambdaParameterShouldBeUnnamed":
             case "UnusedLocalVariable":
+            case "UseEnhancedSwitch":
             case "VariableDeclarationUsageDistance":
             case "WhenShouldBeUsed":
                 return 4; // coding
@@ -219,6 +220,7 @@ final class ModuleGroups {
             case "FinalParameters":
             case "HexLiteralCase":
             case "Indentation":
+            case "LineEnding":
             case "NewlineAtEndOfFile":
             case "NoCodeInFile":
             case "NumericalPrefixesInfixesSuffixesCharacterCase":
@@ -243,6 +245,7 @@ final class ModuleGroups {
             case "CatchParameterName":
             case "ClassTypeParameterName":
             case "ConstantName":
+            case "GoogleNonConstantFieldName":
             case "IllegalIdentifierName":
             case "InterfaceTypeParameterName":
             case "LambdaParameterName":
