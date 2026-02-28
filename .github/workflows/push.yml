@@ -5,6 +5,18 @@ name: CI at GitHub
 on: [push]
 
 jobs:
+  Java17-MacOS:
+    if: contains(toJson(github.event.commits), '[ci skip] ') == false
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-java@v5
+        with:
+          distribution: 'zulu'
+          java-version: 17
+      - uses: gradle/actions/wrapper-validation@v5
+      - run: ./gradlew -x checkstyleMain build javadoc runGoogle runPuppy runSelf runSun --console=plain --stacktrace
+
   Java21-Linux:
     if: contains(toJson(github.event.commits), '[ci skip] ') == false
     runs-on: ubuntu-24.04
