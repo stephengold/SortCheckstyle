@@ -75,7 +75,7 @@ tasks.register<Delete>("cleanXml") {
     delete(fileTree(".").matching{ include("*.xml") })
 }
 
-tasks.withType<JavaCompile>().all { // Java compile-time options:
+tasks.withType<JavaCompile>().configureEach { // Java compile-time options:
     options.compilerArgs.add("-Xdiags:verbose")
     if (javaVersion.isCompatibleWith(JavaVersion.VERSION_20)) {
         // Suppress warnings that source value 8 is obsolete.
@@ -87,7 +87,7 @@ tasks.withType<JavaCompile>().all { // Java compile-time options:
     options.release = 8
 }
 
-tasks.withType<JavaExec>().all { // Java runtime options:
+tasks.withType<JavaExec>().configureEach { // Java runtime options:
     classpath = sourceSets.main.get().runtimeClasspath
     enableAssertions = true
 }
