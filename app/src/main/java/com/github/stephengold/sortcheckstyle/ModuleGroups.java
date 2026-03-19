@@ -119,6 +119,7 @@ final class ModuleGroups {
             case "HiddenField":
             case "IllegalCatch":
             case "IllegalInstantiation":
+            case "IllegalSymbol":
             case "IllegalThrows":
             case "IllegalToken":
             case "IllegalTokenText":
