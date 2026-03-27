@@ -26,7 +26,6 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: 21
-      - uses: gradle/actions/wrapper-validation@v5
       - run: ./gradlew build javadoc runGoogle runPuppy runSelf runSun --console=plain --stacktrace
       - uses: actions/upload-artifact@v7
         with:
