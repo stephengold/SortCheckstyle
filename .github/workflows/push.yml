@@ -14,7 +14,7 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: 17
-      - uses: gradle/actions/wrapper-validation@v5
+      - uses: gradle/actions/wrapper-validation@v6
       - run: ./gradlew -x checkstyleMain build javadoc runGoogle runPuppy runSelf runSun --console=plain --stacktrace
 
   Java21-Linux:
