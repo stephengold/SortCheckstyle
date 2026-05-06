@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2025 Stephen Gold
+Copyright (c) 2025-2026 Stephen Gold
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -45,17 +45,6 @@ class Parameters {
             description = "Display this usage message and exit.")
     private boolean helpOnly;
     /**
-     * filename for XML input
-     */
-    @Parameter(names = {"-f", "--file", "-i", "--input"},
-            description = "Specify the input file.")
-    private String inputFilename;
-    /**
-     * URI for XML input
-     */
-    @Parameter(names = {"-u", "--uri"}, description = "Specify the input URI.")
-    private String inputUri;
-    /**
      * whether to disable attribute sorting
      */
     @Parameter(names = "--noSortAttributes",
@@ -68,17 +57,28 @@ class Parameters {
             description = "Disable child sorting.")
     private boolean noSortChildren;
     /**
-     * filename for XML output (default="checkstyle-out.xml")
-     */
-    @Parameter(names = {"-o", "--output"},
-            description = "Specify the output file.")
-    private String outputFilename = "checkstyle-out.xml";
-    /**
      * whether log output should be verbose
      */
     @Parameter(names = {"-v", "--verbose"},
             description = "Generate additional log output.")
     private boolean verboseLogging;
+    /**
+     * filename for XML input
+     */
+    @Parameter(names = {"-f", "--file", "-i", "--input"},
+            description = "Specify the input file.")
+    private String inputFilename;
+    /**
+     * URI for XML input
+     */
+    @Parameter(names = {"-u", "--uri"}, description = "Specify the input URI.")
+    private String inputUri;
+    /**
+     * filename for XML output (default="checkstyle-out.xml")
+     */
+    @Parameter(names = {"-o", "--output"},
+            description = "Specify the output file.")
+    private String outputFilename = "checkstyle-out.xml";
     // *************************************************************************
     // new methods exposed
 
