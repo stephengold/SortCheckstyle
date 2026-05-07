@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2025 Stephen Gold
+Copyright (c) 2025-2026 Stephen Gold
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -84,7 +84,7 @@ final public class Main {
     /**
      * Main entry point for the SortCheckstyle console application.
      *
-     * @param arguments the command-line arguments
+     * @param arguments the command-line arguments (not {@code null})
      * @throws IOException if an error occurs while reading the input document
      * @throws ParserConfigurationException if the requested DocumentBuilder
      * cannot be created
@@ -111,8 +111,7 @@ final public class Main {
         Document document;
         if (parameters.inputUri() != null) {
             String inputUri = parameters.inputUri();
-            System.out.printf(
-                    "Reading XML from URI \"%s\" ...", inputUri);
+            System.out.printf("Reading XML from URI \"%s\" ...", inputUri);
             document = builder.parse(inputUri);
 
         } else {
