@@ -162,6 +162,7 @@ final class ModuleGroups {
             case "UnusedCatchParameterShouldBeUnnamed":
             case "UnusedLambdaParameterShouldBeUnnamed":
             case "UnusedLocalVariable":
+            case "UnusedTryResourceShouldBeUnnamed":
             case "UseEnhancedSwitch":
             case "VariableDeclarationUsageDistance":
             case "WhenShouldBeUsed":
