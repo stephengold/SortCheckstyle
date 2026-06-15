@@ -46,6 +46,10 @@ tasks.register<JavaExec>("runNoSort") {
     args("--noSortAttributes", "--noSortChildren")
     description = "Process the default input without sorting or compressing anything."
 }
+tasks.register<JavaExec>("runOpenJdk") {
+    args("-u", "https://raw.githubusercontent.com/checkstyle/checkstyle/refs/heads/master/src/main/resources/openjdk_checks.xml")
+    description = "Process the Checkstyle configuration for OpenJDK Java Style."
+}
 tasks.register<JavaExec>("runPuppy") {
     args("-u", "https://raw.githubusercontent.com/checkstyle/checkstyle/refs/heads/master/config/checkstyle-checks.xml")
     description = "Process the Checkstyle configuration for Checkstyle itself."
