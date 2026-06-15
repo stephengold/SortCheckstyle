@@ -33,37 +33,30 @@ dependencies {
 tasks.register<JavaExec>("runCompress") {
     args("--compress", "--noSortAttributes", "--noSortChildren")
     description = "Compress the default input."
-    mainClass = "com.github.stephengold.sortcheckstyle.Main"
 }
 tasks.register<JavaExec>("runGoogle") {
     args("-u", "https://raw.githubusercontent.com/checkstyle/checkstyle/refs/heads/master/src/main/resources/google_checks.xml")
     description = "Process the Checkstyle configuration for Google Java Style."
-    mainClass = "com.github.stephengold.sortcheckstyle.Main"
 }
 tasks.register<JavaExec>("runHelp") {
     args("-h")
     description = "Display the usage message and then exit."
-    mainClass = "com.github.stephengold.sortcheckstyle.Main"
 }
 tasks.register<JavaExec>("runNoSort") {
     args("--noSortAttributes", "--noSortChildren")
     description = "Process the default input without sorting or compressing anything."
-    mainClass = "com.github.stephengold.sortcheckstyle.Main"
 }
 tasks.register<JavaExec>("runPuppy") {
     args("-u", "https://raw.githubusercontent.com/checkstyle/checkstyle/refs/heads/master/config/checkstyle-checks.xml")
     description = "Process the Checkstyle configuration for Checkstyle itself."
-    mainClass = "com.github.stephengold.sortcheckstyle.Main"
 }
 tasks.register<JavaExec>("runSelf") {
     args("-i", "../config/checkstyle/checkstyle.xml")
     description = "Process the SortCheckstyle configuration file."
-    mainClass = "com.github.stephengold.sortcheckstyle.Main"
 }
 tasks.register<JavaExec>("runSun") {
     args("-u", "https://raw.githubusercontent.com/checkstyle/checkstyle/refs/heads/master/src/main/resources/sun_checks.xml")
     description = "Process the Checkstyle configuration for Sun's Java Style."
-    mainClass = "com.github.stephengold.sortcheckstyle.Main"
 }
 
 // Register cleanup tasks:
@@ -90,4 +83,5 @@ tasks.withType<JavaCompile>().configureEach { // Java compile-time options:
 tasks.withType<JavaExec>().configureEach { // Java runtime options:
     classpath = sourceSets.main.get().runtimeClasspath
     enableAssertions = true
+    mainClass = "com.github.stephengold.sortcheckstyle.Main"
 }
