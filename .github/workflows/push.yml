@@ -14,7 +14,7 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: 17
-      - uses: gradle/actions/wrapper-validation@v6
+      - uses: gradle/actions/setup-gradle@v6
       - run: ./gradlew -x checkstyleMain build javadoc runGoogle runOpenJdk runPuppy runSelf runSun --console=plain --stacktrace
 
   Java21-Linux:
@@ -26,6 +26,7 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: 21
+      - uses: gradle/actions/setup-gradle@v6
       - run: ./gradlew build javadoc runGoogle runOpenJdk runPuppy runSelf runSun --console=plain --stacktrace
       - uses: actions/upload-artifact@v7
         with:
@@ -41,6 +42,7 @@ jobs:
         with:
           distribution: 'liberica'
           java-version: 26
+      - uses: gradle/actions/setup-gradle@v6
       - run: ./gradlew build javadoc runGoogle runOpenJdk runPuppy runSelf runSun --console=plain --stacktrace
         shell: bash
       - uses: actions/upload-artifact@v7
