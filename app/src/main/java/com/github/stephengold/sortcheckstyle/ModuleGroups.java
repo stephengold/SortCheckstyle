@@ -77,6 +77,7 @@ final class ModuleGroups {
             case "MissingDeprecated":
             case "MissingOverride":
             case "MissingOverrideOnRecordAccessor":
+            case "OpenjdkAnnotationLocation":
             case "PackageAnnotation":
             case "SuppressWarnings":
             case "SuppressWarningsHolder":
@@ -159,6 +160,7 @@ final class ModuleGroups {
             case "UnnecessarySemicolonAfterTypeMemberDeclaration":
             case "UnnecessarySemicolonInEnumeration":
             case "UnnecessarySemicolonInTryWithResources":
+            case "UnnecessaryTypeArgumentsWithRecordPattern":
             case "UnusedCatchParameterShouldBeUnnamed":
             case "UnusedLambdaParameterShouldBeUnnamed":
             case "UnusedLocalVariable":
@@ -223,6 +225,7 @@ final class ModuleGroups {
             case "HexLiteralCase":
             case "Indentation":
             case "LineEnding":
+            case "MultilineCommentLeadingAsteriskPresence":
             case "NewlineAtEndOfFile":
             case "NoCodeInFile":
             case "NumericalPrefixesInfixesSuffixesCharacterCase":
@@ -236,6 +239,7 @@ final class ModuleGroups {
             case "UpperEll":
                 return 9; // miscellaneous
 
+            case "AnnotatedDeclarationVisibility":
             case "ClassMemberImpliedModifier":
             case "InterfaceMemberImpliedModifier":
             case "ModifierOrder":
@@ -298,9 +302,11 @@ final class ModuleGroups {
             case "ParenPad":
             case "SeparatorWrap":
             case "SingleSpaceSeparator":
+            case "TypeBodyPadding":
             case "TypecastParenPad":
             case "WhitespaceAfter":
             case "WhitespaceAround":
+            case "WhitespaceBeforeEmptyBody":
                 return 14; // whitespace
 
             case "SeverityMatchFilter":
