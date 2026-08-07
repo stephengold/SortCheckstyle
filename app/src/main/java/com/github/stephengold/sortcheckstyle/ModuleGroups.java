@@ -251,6 +251,7 @@ final class ModuleGroups {
             case "CatchParameterName":
             case "ClassTypeParameterName":
             case "ConstantName":
+            case "GoogleMethodName":
             case "GoogleNonConstantFieldName":
             case "IllegalIdentifierName":
             case "InterfaceTypeParameterName":
