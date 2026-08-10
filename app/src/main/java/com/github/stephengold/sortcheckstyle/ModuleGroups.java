@@ -186,6 +186,7 @@ final class ModuleGroups {
                 return 6; // imports
 
             case "AtclauseOrder":
+            case "IllegalBlockTag":
             case "InvalidJavadocPosition":
             case "JavadocBlockTagLocation":
             case "JavadocContentLocation":
@@ -195,6 +196,7 @@ final class ModuleGroups {
             case "JavadocMissingWhitespaceAfterAsterisk":
             case "JavadocPackage":
             case "JavadocParagraph":
+            case "JavadocRegexp":
             case "JavadocStyle":
             case "JavadocTagContinuationIndentation":
             case "JavadocType":
@@ -289,6 +291,7 @@ final class ModuleGroups {
             case "RecordComponentNumber":
                 return 13; // size violations
 
+            case "ArrayBracketNoWhitespace":
             case "EmptyForInitializerPad":
             case "EmptyForIteratorPad":
             case "EmptyLineSeparator":
