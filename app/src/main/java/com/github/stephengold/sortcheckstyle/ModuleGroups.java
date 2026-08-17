@@ -205,6 +205,7 @@ final class ModuleGroups {
             case "MissingJavadocPackage":
             case "MissingJavadocType":
             case "NonEmptyAtclauseDescription":
+            case "PreferLiteralJavadocInlineTag":
             case "RequireEmptyLineBeforeBlockTagGroup":
             case "SingleLineJavadoc":
             case "SummaryJavadoc":
