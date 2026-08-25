@@ -154,6 +154,7 @@ final class ModuleGroups {
             case "SuperClone":
             case "SuperFinalize":
             case "TextBlockGoogleStyleFormatting":
+            case "UnnecessaryFullyQualifiedType":
             case "UnnecessaryNullCheckWithInstanceOf":
             case "UnnecessaryParentheses":
             case "UnnecessarySemicolonAfterOuterTypeDeclaration":
@@ -164,6 +165,7 @@ final class ModuleGroups {
             case "UnusedCatchParameterShouldBeUnnamed":
             case "UnusedLambdaParameterShouldBeUnnamed":
             case "UnusedLocalVariable":
+            case "UnusedPrivateField":
             case "UnusedTryResourceShouldBeUnnamed":
             case "UseEnhancedSwitch":
             case "VariableDeclarationUsageDistance":
@@ -187,24 +189,32 @@ final class ModuleGroups {
 
             case "AtclauseOrder":
             case "IllegalBlockTag":
+            case "InappropriateJavadocBlockTagsOnType":
             case "InvalidJavadocPosition":
             case "JavadocBlockTagLocation":
             case "JavadocContentLocation":
+            case "JavadocEndCommentDelimiter":
             case "JavadocLeadingAsteriskAlign":
+            case "JavadocLinkFirstOccurrence":
+            case "JavadocLinkWellKnownApi":
             case "JavadocMethod":
             case "JavadocMissingLeadingAsterisk":
             case "JavadocMissingWhitespaceAfterAsterisk":
+            case "JavadocNoErrorInThrowsTag":
             case "JavadocPackage":
             case "JavadocParagraph":
+            case "JavadocParamOrder":
             case "JavadocRegexp":
             case "JavadocStyle":
             case "JavadocTagContinuationIndentation":
+            case "JavadocThrowsOrder":
             case "JavadocType":
             case "JavadocVariable":
             case "MissingJavadocMethod":
             case "MissingJavadocPackage":
             case "MissingJavadocType":
             case "NonEmptyAtclauseDescription":
+            case "PreferCodeOrSnippetJavadocInlineTag":
             case "PreferLiteralJavadocInlineTag":
             case "RequireEmptyLineBeforeBlockTagGroup":
             case "SingleLineJavadoc":
