@@ -33,7 +33,7 @@ final class ModuleGroups {
     /**
      * index of the group to which non-file suppression modules belong
      */
-    final private static int suppressionGroup = 15;
+    final private static int suppressionGroup = 16;
     // *************************************************************************
     // constructors
 
@@ -259,6 +259,9 @@ final class ModuleGroups {
             case "RedundantModifier":
                 return 10; // modifiers
 
+            case "ModuleDirectiveOrder":
+                return 11; // modules
+
             case "AbbreviationAsWordInName":
             case "AbstractClassName":
             case "CatchParameterName":
@@ -281,14 +284,14 @@ final class ModuleGroups {
             case "RecordTypeParameterName":
             case "StaticVariableName":
             case "TypeName":
-                return 11; // naming conventions
+                return 12; // naming conventions
 
             case "Regexp":
             case "RegexpMultiline":
             case "RegexpOnFilename":
             case "RegexpSingleline":
             case "RegexpSinglelineJava":
-                return 12; // regexp checks
+                return 13; // regexp
 
             case "AnonInnerLength":
             case "ExecutableStatementCount":
@@ -300,7 +303,7 @@ final class ModuleGroups {
             case "OuterTypeNumber":
             case "ParameterNumber":
             case "RecordComponentNumber":
-                return 13; // size violations
+                return 14; // size violations
 
             case "ArrayBracketNoWhitespace":
             case "EmptyForInitializerPad":
@@ -322,7 +325,7 @@ final class ModuleGroups {
             case "WhitespaceAfter":
             case "WhitespaceAround":
             case "WhitespaceBeforeEmptyBody":
-                return 14; // whitespace
+                return 15; // whitespace
 
             case "SeverityMatchFilter":
             case "SuppressWarningsFilter":
