@@ -115,6 +115,7 @@ final class ModuleGroups {
             case "EqualsAvoidNull":
             case "EqualsHashCode":
             case "ExplicitInitialization":
+            case "ExpressionOverBlockLambda":
             case "FallThrough":
             case "FinalLocalVariable":
             case "HiddenField":
@@ -177,18 +178,22 @@ final class ModuleGroups {
             case "RegexpHeader":
                 return 5; // headers
 
+            case "AvoidModuleImport":
             case "AvoidStarImport":
             case "AvoidStaticImport":
             case "CustomImportOrder":
             case "IllegalImport":
             case "ImportControl":
             case "ImportOrder":
+            case "ModuleImportOrder":
             case "RedundantImport":
             case "UnusedImports":
                 return 6; // imports
 
             case "AtclauseOrder":
             case "IllegalBlockTag":
+            case "InappropriateJavadocBlockTagsOnField":
+            case "InappropriateJavadocBlockTagsOnPackage":
             case "InappropriateJavadocBlockTagsOnType":
             case "InvalidJavadocPosition":
             case "JavadocBlockTagLocation":
