@@ -155,7 +155,6 @@ final class ModuleGroups {
             case "SuperClone":
             case "SuperFinalize":
             case "TextBlockGoogleStyleFormatting":
-            case "UnnecessaryFullyQualifiedType":
             case "UnnecessaryNullCheckWithInstanceOf":
             case "UnnecessaryParentheses":
             case "UnnecessarySemicolonAfterOuterTypeDeclaration":
@@ -187,6 +186,7 @@ final class ModuleGroups {
             case "ImportOrder":
             case "ModuleImportOrder":
             case "RedundantImport":
+            case "UnnecessaryFullyQualifiedType":
             case "UnusedImports":
                 return 6; // imports
 
