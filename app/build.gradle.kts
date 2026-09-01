@@ -40,7 +40,7 @@ tasks.register<JavaExec>("runCompress") {
     description = "Compress the default input."
 }
 tasks.register<JavaExec>("runGoogle") {
-    args("-u", "https://raw.githubusercontent.com/checkstyle/checkstyle/refs/heads/master/src/main/resources/google_checks.xml")
+    args("--compress", "-u", "https://raw.githubusercontent.com/checkstyle/checkstyle/refs/heads/master/src/main/resources/google_checks.xml")
     description = "Process the Checkstyle configuration for Google Java Style."
 }
 tasks.register<JavaExec>("runHelp") {
