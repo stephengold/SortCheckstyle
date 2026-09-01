@@ -23,6 +23,11 @@ tasks.named<Jar>("jar") {
 checkstyle {
     toolVersion = libs.versions.checkstyle.get()
 }
+tasks.withType<Checkstyle>().configureEach {
+    javaLauncher = javaToolchains.launcherFor {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
 
 dependencies {
     implementation(libs.jcommander)

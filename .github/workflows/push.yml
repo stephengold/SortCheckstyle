@@ -15,7 +15,7 @@ jobs:
           distribution: 'zulu'
           java-version: 17
       - uses: gradle/actions/setup-gradle@v6
-      - run: ./gradlew -x checkstyleMain build javadoc runGoogle runOpenJdk runPuppy runSelf runSun --console=plain --stacktrace
+      - run: ./gradlew build javadoc runGoogle runOpenJdk runPuppy runSelf runSun --console=plain --stacktrace
 
   Java21-Linux:
     if: contains(toJson(github.event.commits), '[ci skip] ') == false
