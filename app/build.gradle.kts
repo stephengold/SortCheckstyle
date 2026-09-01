@@ -39,6 +39,10 @@ tasks.register<JavaExec>("runCompress") {
     args("--compress", "--noSortAttributes", "--noSortChildren")
     description = "Compress the default input."
 }
+tasks.register<JavaExec>("runDoc") {
+    args("--compress", "-u", "https://github.com/checkstyle/checkstyle/blob/master/src/main/resources/doc_comments_checks.xml")
+    description = "Process the Checkstyle configuration for Documentation Comments Style."
+}
 tasks.register<JavaExec>("runGoogle") {
     args("--compress", "-u", "https://raw.githubusercontent.com/checkstyle/checkstyle/refs/heads/master/src/main/resources/google_checks.xml")
     description = "Process the Checkstyle configuration for Google Java Style."
