@@ -321,6 +321,7 @@ final class ModuleGroups {
             case "NoWhitespaceAfter":
             case "NoWhitespaceBefore":
             case "NoWhitespaceBeforeCaseDefaultColon":
+            case "OpenjdkMethodThrowsAlignment":
             case "OperatorWrap":
             case "ParenPad":
             case "SeparatorWrap":
