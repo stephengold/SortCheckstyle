@@ -210,6 +210,7 @@ final class ModuleGroups {
             case "JavadocParagraph":
             case "JavadocParamOrder":
             case "JavadocRegexp":
+            case "JavadocSeeTagOrder":
             case "JavadocStyle":
             case "JavadocTagContinuationIndentation":
             case "JavadocThrowsOrder":
