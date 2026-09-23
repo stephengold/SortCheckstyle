@@ -86,6 +86,7 @@ final class ModuleGroups {
             case "AvoidNestedBlocks":
             case "EmptyBlock":
             case "EmptyCatchBlock":
+            case "GoogleRightCurly":
             case "LeftCurly":
             case "NeedBraces":
             case "RightCurly":
