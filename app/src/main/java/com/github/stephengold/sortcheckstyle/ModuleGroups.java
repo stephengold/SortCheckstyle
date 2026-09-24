@@ -101,6 +101,7 @@ final class ModuleGroups {
             case "OneTopLevelClass":
             case "SealedShouldHavePermitsList":
             case "ThrowsCount":
+            case "UnnecessaryPermitsClause":
             case "VisibilityModifier":
                 return 3; // class design
 
