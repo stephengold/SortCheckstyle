@@ -33,7 +33,7 @@ jobs:
           archive: false
           path: app/build/distributions/app.tar
 
-  Java26-Windows:
+  Java27-Windows:
     if: contains(toJson(github.event.commits), '[ci skip] ') == false
     runs-on: windows-2025
     steps:
@@ -41,7 +41,7 @@ jobs:
       - uses: actions/setup-java@v6
         with:
           distribution: 'liberica'
-          java-version: 26
+          java-version: 27
       - uses: gradle/actions/setup-gradle@v6
       - run: ./gradlew build javadoc runGoogle runOpenJdk runPuppy runSelf runSun --console=plain --stacktrace
         shell: bash
