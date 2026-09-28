@@ -101,7 +101,6 @@ final class ModuleGroups {
             case "OneTopLevelClass":
             case "SealedShouldHavePermitsList":
             case "ThrowsCount":
-            case "UnnecessaryPermitsClause":
             case "VisibilityModifier":
                 return 3; // class design
 
@@ -159,6 +158,7 @@ final class ModuleGroups {
             case "TextBlockGoogleStyleFormatting":
             case "UnnecessaryNullCheckWithInstanceOf":
             case "UnnecessaryParentheses":
+            case "UnnecessaryPermitsClause":
             case "UnnecessarySemicolonAfterOuterTypeDeclaration":
             case "UnnecessarySemicolonAfterTypeMemberDeclaration":
             case "UnnecessarySemicolonInEnumeration":
@@ -250,6 +250,7 @@ final class ModuleGroups {
             case "NewlineAtEndOfFile":
             case "NoCodeInFile":
             case "NumericalPrefixesInfixesSuffixesCharacterCase":
+            case "OpenjdkMethodThrowsAlignment":
             case "OrderedProperties":
             case "OuterTypeFilename":
             case "TodoComment":
@@ -324,7 +325,6 @@ final class ModuleGroups {
             case "NoWhitespaceAfter":
             case "NoWhitespaceBefore":
             case "NoWhitespaceBeforeCaseDefaultColon":
-            case "OpenjdkMethodThrowsAlignment":
             case "OperatorWrap":
             case "ParenPad":
             case "SeparatorWrap":
