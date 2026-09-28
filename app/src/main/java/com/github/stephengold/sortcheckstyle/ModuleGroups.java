@@ -104,6 +104,7 @@ final class ModuleGroups {
             case "VisibilityModifier":
                 return 3; // class design
 
+            // coding:
             case "ArrayTrailingComma":
             case "AvoidDoubleBraceInitialization":
             case "AvoidInlineConditionals":
@@ -179,6 +180,7 @@ final class ModuleGroups {
             case "RegexpHeader":
                 return 5; // headers
 
+            // imports:
             case "AvoidModuleImport":
             case "AvoidStarImport":
             case "AvoidStaticImport":
@@ -192,6 +194,7 @@ final class ModuleGroups {
             case "UnusedImports":
                 return 6; // imports
 
+            // javadoc comments:
             case "AtclauseOrder":
             case "IllegalBlockTag":
             case "InappropriateJavadocBlockTagsOnField":
@@ -213,7 +216,7 @@ final class ModuleGroups {
             case "JavadocParamOrder":
             case "JavadocRegexp":
             case "JavadocSeeTagOrder":
-            case "JavadocStyle":
+            case "JavadocStyle": // removed from v13.9.0
             case "JavadocTagContinuationIndentation":
             case "JavadocThrowsOrder":
             case "JavadocType":
@@ -238,6 +241,7 @@ final class ModuleGroups {
             case "NPathComplexity":
                 return 8; // metrics
 
+            // miscellaneous:
             case "ArrayTypeStyle":
             case "AvoidEscapedUnicodeCharacters":
             case "CommentsIndentation":
@@ -271,6 +275,7 @@ final class ModuleGroups {
             case "ModuleDirectiveOrder":
                 return 11; // modules
 
+            // naming conventions:
             case "AbbreviationAsWordInName":
             case "AbstractClassName":
             case "CatchParameterName":
@@ -314,6 +319,7 @@ final class ModuleGroups {
             case "RecordComponentNumber":
                 return 14; // size violations
 
+            // whitespace:
             case "ArrayBracketNoWhitespace":
             case "EmptyForInitializerPad":
             case "EmptyForIteratorPad":
