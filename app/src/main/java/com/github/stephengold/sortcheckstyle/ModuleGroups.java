@@ -220,6 +220,7 @@ final class ModuleGroups {
             case "JavadocTagContinuationIndentation":
             case "JavadocThrowsOrder":
             case "JavadocType":
+            case "JavadocUtilizingTrailingSpace":
             case "JavadocVariable":
             case "MissingJavadocMethod":
             case "MissingJavadocPackage":
