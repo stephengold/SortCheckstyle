@@ -117,6 +117,7 @@ final class ModuleGroups {
             case "EmptyStatement":
             case "EqualsAvoidNull":
             case "EqualsHashCode":
+            case "ExceptionThrowShouldUseContext":
             case "ExplicitInitialization":
             case "ExpressionOverBlockLambda":
             case "FallThrough":
@@ -150,6 +151,7 @@ final class ModuleGroups {
             case "PackageDeclaration":
             case "ParameterAssignment":
             case "PatternVariableAssignment":
+            case "RedundantThis":
             case "RequireThis":
             case "ReturnCount":
             case "SimplifyBooleanExpression":
