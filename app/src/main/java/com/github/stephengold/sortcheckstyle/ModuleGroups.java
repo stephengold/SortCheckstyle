@@ -143,6 +143,7 @@ final class ModuleGroups {
             case "NestedIfDepth":
             case "NestedTryDepth":
             case "NoArrayTrailingComma":
+            case "NoCauseGetMessageInExceptionConstructor":
             case "NoClone":
             case "NoEnumTrailingComma":
             case "NoFinalizer":
@@ -248,6 +249,7 @@ final class ModuleGroups {
             // miscellaneous:
             case "ArrayTypeStyle":
             case "AvoidEscapedUnicodeCharacters":
+            case "ClassHeaderWrapOpenjdk":
             case "CommentsIndentation":
             case "DescendantToken":
             case "FinalParameters":
@@ -335,6 +337,7 @@ final class ModuleGroups {
             case "NoWhitespaceAfter":
             case "NoWhitespaceBefore":
             case "NoWhitespaceBeforeCaseDefaultColon":
+            case "OpenjdkMethodParameterAlignment":
             case "OperatorWrap":
             case "ParenPad":
             case "SeparatorWrap":
