@@ -122,6 +122,7 @@ final class ModuleGroups {
             case "ExpressionOverBlockLambda":
             case "FallThrough":
             case "FinalLocalVariable":
+            case "FinalPatternVariable":
             case "HiddenField":
             case "IllegalCatch":
             case "IllegalInstantiation":
