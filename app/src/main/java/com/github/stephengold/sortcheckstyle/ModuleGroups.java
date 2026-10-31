@@ -201,6 +201,7 @@ final class ModuleGroups {
 
             // javadoc comments:
             case "AtclauseOrder":
+            case "BlockCommentEndPosition":
             case "IllegalBlockTag":
             case "InappropriateJavadocBlockTagsOnField":
             case "InappropriateJavadocBlockTagsOnPackage":
@@ -277,6 +278,7 @@ final class ModuleGroups {
             case "InterfaceMemberImpliedModifier":
             case "ModifierOrder":
             case "RedundantModifier":
+            case "RedundantModifierCompactSource":
                 return 10; // modifiers
 
             case "ModuleDirectiveOrder":
