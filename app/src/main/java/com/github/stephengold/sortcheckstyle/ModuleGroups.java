@@ -86,7 +86,6 @@ final class ModuleGroups {
             case "AvoidNestedBlocks":
             case "EmptyBlock":
             case "EmptyCatchBlock":
-            case "EmptyLineWrappingInBlock":
             case "GoogleRightCurly":
             case "LeftCurly":
             case "NeedBraces":
@@ -333,6 +332,7 @@ final class ModuleGroups {
             case "EmptyForInitializerPad":
             case "EmptyForIteratorPad":
             case "EmptyLineSeparator":
+            case "EmptyLineWrappingInBlock":
             case "FileTabCharacter":
             case "GenericWhitespace":
             case "MethodParamPad":
