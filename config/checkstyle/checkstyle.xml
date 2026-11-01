@@ -142,6 +142,11 @@
         </module>
         <module name="IllegalType"/>
         <module name="MatchXpath">
+            <property name="id" value="CompactSourceFileNotAllowed"/>
+            <property name="query" value="/COMPACT_COMPILATION_UNIT"/>
+            <message key="matchxpath.match" value="Compact source file is not allowed."/>
+        </module>
+        <module name="MatchXpath">
             <property name="id" value="PublicStaticFinalVariable"/>
             <property name="query" value="//VARIABLE_DEF[MODIFIERS[LITERAL_PUBLIC and LITERAL_STATIC and not(FINAL)]]"/>
             <message key="matchxpath.match" value="Public static variable must be final."/>
@@ -150,11 +155,6 @@
             <property name="id" value="singleLineCommentStartWithSpace"/>
             <property name="query" value="//SINGLE_LINE_COMMENT[./COMMENT_CONTENT[not(starts-with(@text, ' ')) and not(starts-with(@text, '/')) and not(@text = '\n') and not(ends-with(@text, '//\n'))]]"/>
             <message key="matchxpath.match" value="''//'' must be followed by a whitespace."/>
-        </module>
-        <module name="MatchXpath">
-            <property name="id" value="CompactSourceFileNotAllowed"/>
-            <property name="query" value="/COMPACT_COMPILATION_UNIT"/>
-            <message key="matchxpath.match" value="Compact source file is not allowed."/>
         </module>
         <module name="MatchXpath">
             <property name="id" value="unnecessaryParenthesesInReturn"/>
