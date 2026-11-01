@@ -67,7 +67,9 @@
         </module>
         <module name="AnnotationUseStyle"/>
         <module name="MissingDeprecated"/>
+        <module name="MissingOverride"/>
         <module name="MissingOverrideOnRecordAccessor"/>
+        <module name="OpenjdkAnnotationLocation"/>
         <module name="SuppressWarningsHolder"/>
 
         <!-- Checks for blocks:                       -->
@@ -140,6 +142,11 @@
         </module>
         <module name="IllegalType"/>
         <module name="MatchXpath">
+            <property name="id" value="PublicStaticFinalVariable"/>
+            <property name="query" value="//VARIABLE_DEF[MODIFIERS[LITERAL_PUBLIC and LITERAL_STATIC and not(FINAL)]]"/>
+            <message key="matchxpath.match" value="Public static variable must be final."/>
+        </module>
+        <module name="MatchXpath">
             <property name="id" value="singleLineCommentStartWithSpace"/>
             <property name="query" value="//SINGLE_LINE_COMMENT[./COMMENT_CONTENT[not(starts-with(@text, ' ')) and not(starts-with(@text, '/')) and not(@text = '\n') and not(ends-with(@text, '//\n'))]]"/>
             <message key="matchxpath.match" value="''//'' must be followed by a whitespace."/>
@@ -148,6 +155,11 @@
             <property name="id" value="CompactSourceFileNotAllowed"/>
             <property name="query" value="/COMPACT_COMPILATION_UNIT"/>
             <message key="matchxpath.match" value="Compact source file is not allowed."/>
+        </module>
+        <module name="MatchXpath">
+            <property name="id" value="unnecessaryParenthesesInReturn"/>
+            <property name="query" value="//LITERAL_RETURN/EXPR[./LPAREN and ./RPAREN and not(./LPAREN/preceding-sibling::*)]"/>
+            <message key="matchxpath.match" value="Unnecessary parentheses in return statement."/>
         </module>
         <module name="MissingSwitchDefault"/>
         <module name="ModifiedControlVariable"/>
@@ -200,6 +212,7 @@
             <property name="scope" value="private"/>
         </module>
         <module name="NonEmptyAtclauseDescription"/>
+        <module name="PreferLiteralJavadocInlineTag"/>
         <module name="RequireEmptyLineBeforeBlockTagGroup"/>
         <module name="SingleLineJavadoc"/>
         <module name="SummaryJavadoc">
@@ -211,6 +224,7 @@
         <!-- See https://checkstyle.org/checks/misc -->
         <module name="ArrayTypeStyle"/>
         <module name="AvoidEscapedUnicodeCharacters"/>
+        <module name="ClassHeaderWrapOpenjdk"/>
         <module name="CommentsIndentation"/>
         <module name="HexLiteralCase"/>
         <module name="Indentation">
@@ -222,6 +236,7 @@
         </module>
         <module name="NoCodeInFile"/>
         <module name="NumericalPrefixesInfixesSuffixesCharacterCase"/>
+        <module name="OpenjdkMethodThrowsAlignment"/>
         <module name="OuterTypeFilename"/>
         <module name="TodoComment">
             <property name="format" value="^[ \t]*(?!TODO:)(?i:TODO)\b:?"/>
@@ -328,6 +343,9 @@
 
         <!-- Checks for size violations:             -->
         <!-- See https://checkstyle.org/checks/sizes -->
+        <module name="LambdaBodyLength">
+            <property name="max" value="40"/>
+        </module>
         <module name="MethodLength">
             <property name="max" value="320"/>
         </module>
@@ -363,6 +381,7 @@
             <property name="tokens" value="COMMA, SEMI, POST_INC, POST_DEC, DOT, LABELED_STAT, METHOD_REF, ELLIPSIS"/>
         </module>
         <module name="NoWhitespaceBeforeCaseDefaultColon"/>
+        <module name="OpenjdkMethodParameterAlignment"/>
         <module name="OperatorWrap">
             <property name="id" value="OperatorWrapEOL"/>
             <property name="option" value="EOL"/>
