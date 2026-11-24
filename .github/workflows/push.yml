@@ -5,7 +5,7 @@ name: CI at GitHub
 on: [push]
 
 jobs:
-  Java17-MacOS:
+  Java17-MacOSX_ARM64:
     if: contains(toJson(github.event.commits), '[ci skip] ') == false
     runs-on: xcode-27
     steps:
@@ -13,11 +13,13 @@ jobs:
       - uses: actions/setup-java@v6
         with:
           distribution: 'zulu'
-          java-version: 17
+          java-version: '17'
       - uses: gradle/actions/setup-gradle@v6
-      - run: ./gradlew build javadoc runGoogle runOpenJdk runPuppy runSelf runSun --console=plain --stacktrace
+      - run: |
+          ./gradlew build javadoc runGoogle runOpenJdk runPuppy runSelf runSun \
+            --console=plain --stacktrace
 
-  Java21-Linux:
+  Java21-Linux64:
     if: contains(toJson(github.event.commits), '[ci skip] ') == false
     runs-on: ubuntu-26.04
     steps:
@@ -25,15 +27,17 @@ jobs:
       - uses: actions/setup-java@v6
         with:
           distribution: 'zulu'
-          java-version: 21
+          java-version: '21'
       - uses: gradle/actions/setup-gradle@v6
-      - run: ./gradlew build javadoc runGoogle runOpenJdk runPuppy runSelf runSun --console=plain --stacktrace
+      - run: |
+          ./gradlew build javadoc runGoogle runOpenJdk runPuppy runSelf runSun \
+            --console=plain --stacktrace
       - uses: actions/upload-artifact@v7
         with:
           archive: false
           path: app/build/distributions/app.tar
 
-  Java27-Windows:
+  Java27-Windows64:
     if: contains(toJson(github.event.commits), '[ci skip] ') == false
     runs-on: windows-2025
     steps:
@@ -41,9 +45,11 @@ jobs:
       - uses: actions/setup-java@v6
         with:
           distribution: 'liberica'
-          java-version: 27
+          java-version: '27'
       - uses: gradle/actions/setup-gradle@v6
-      - run: ./gradlew build javadoc runGoogle runOpenJdk runPuppy runSelf runSun --console=plain --stacktrace
+      - run: |
+          ./gradlew build javadoc runGoogle runOpenJdk runPuppy runSelf runSun \
+            --console=plain --stacktrace
         shell: bash
       - uses: actions/upload-artifact@v7
         with:
